@@ -1,31 +1,28 @@
-import Nav from '@components/Nav'
-import '@styles/global.css'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import "@styles/globals.css";
 
-const inter = Inter({ subsets: ['latin'] })
+import Nav from "@components/Nav";
+import Provider from "@components/Provider";
 
-export const metadata: Metadata = {
-  title: 'Create prompts like a pro.',
-  description: 'Generate prompts and share them with your community.',
-}
+export const metadata = {
+  title: "Build your prompt",
+  description: "Discover & Share AI Prompts",
+};
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
-  return (
-    <html lang="en">
-      <body className={inter.className}>
+const RootLayout = ({ children }) => (
+  <html lang='en'>
+    <body>
+      <Provider>
         <div className='main'>
-          <div className='gradient'></div>
+          <div className='gradient' />
         </div>
+
         <main className='app'>
-          <Nav></Nav>
+          <Nav />
           {children}
         </main>
-      </body>
-    </html>
-  )
-}
+      </Provider>
+    </body>
+  </html>
+);
+
+export default RootLayout;
